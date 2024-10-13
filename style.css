@@ -1,0 +1,119 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;  /* Professional font */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;  /* Light background */
+    color: #333;  /* Dark text for good contrast */
+}
+
+header {
+    background-color: #333;  /* Dark background */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+nav {
+    background-color: #444;  /* Slightly lighter for nav */
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+nav a:hover {
+    background-color: #555;  /* Hover effect on links */
+    border-radius: 5px;
+}
+
+section {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);  /* Subtle shadow for sections */
+    border-radius: 10px;  /* Rounded corners */
+}
+
+h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+p, li {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+/* Button Styles */
+a.button {
+    display: inline-block;
+    padding: 10px 25px;
+    margin-top: 20px;
+    background-color: #333;  /* Button background */
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+a.button:hover {
+    background-color: #555;  /* Button hover effect */
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+    nav a {
+        padding: 10px;
+        font-size: 1em;
+    }
+    section {
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header h1 {
+        font-size: 1.7em;
+    }
+    nav a {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+    section {
+        padding: 10px;
+    }
+}
