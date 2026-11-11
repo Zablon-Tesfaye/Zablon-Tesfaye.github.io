@@ -13,6 +13,9 @@ The site uses a limited black/gray/warm-white palette, a simple editorial grid, 
 - `style.css` — shared responsive typography and layout
 - `script.js` — automatically updates copyright year
 - `favicon.svg` — compact neutral monogram
+- `autonomous-car.svg` — original top-down line drawing of an autonomous research car
+- `autonomy.css` — fixed road rail, subtle idle steering, responsive/reduced-motion behavior
+- `autonomy.js` — maps scroll position to reversible car movement using animation frames
 - `tests/test_site.py` — built-in Python checks for anchors, link safety, and required assets
 
 ## Local preview
@@ -40,3 +43,9 @@ The Legacy source code is private, so the portfolio does not link to it. Resume-
 ## Deployment
 
 GitHub Pages publishes from the repository's `main` branch. Deployment status is visible under the repository's **Actions** tab.
+
+## Autonomous vehicle interaction
+
+On desktop widths of 1200px or more, the vehicle sits on a slim fixed road at the left edge. It starts near the bottom of that road and moves upward as visitors scroll down the portfolio; scrolling back reverses the motion. A slight steering sway plays while idle. On tablets and phones, the rail is hidden to preserve reading space, and users who prefer reduced motion see a stationary car instead of animation.
+
+The illustration is a locally hosted SVG with no image service, animation framework, or third-party dependency. The functionality is isolated so the minimalist content layout can remain unchanged.
