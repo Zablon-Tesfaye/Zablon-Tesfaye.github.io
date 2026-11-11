@@ -1,40 +1,33 @@
-# Zablon Tesfaye — Portfolio
+# Zablon Tesfaye — Personal portfolio
 
-A lightweight personal portfolio hosted with GitHub Pages, featuring research, professional experience, and selected engineering projects.
+A quiet, typography-led portfolio: https://zablon-tesfaye.github.io/
 
-**Website:** https://zablon-tesfaye.github.io/
+## Approach
 
-## What's included
+The site uses a limited black/gray/warm-white palette, a simple editorial grid, and direct writing. Its layout is intentionally understated: no gradients, glass effects, decorative cards, animated counters, or external fonts.
 
-- `index.html` — introduction, projects, experience timeline, skills, and contact section
-- `contacts.html` — accessible standalone contact page
-- `style.css` — responsive layouts and a small shared design system
-- `script.js` — project filters, mobile navigation, and automatic footer year
-- `favicon.svg` — self-contained monogram icon
+## Structure
 
-## Run locally
+- `index.html` — selected projects, experience, background, and contact
+- `contacts.html` — secondary contact page in the same visual language
+- `style.css` — shared responsive typography and layout
+- `script.js` — automatically updates copyright year
+- `favicon.svg` — compact neutral monogram
 
-No build system or API keys are required. From the repository directory:
+## Local preview
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Open http://localhost:8000 in a browser.
+Visit http://localhost:8000.
 
-## Updating content
+## Editing content
 
-Project details and resume-based experience are deliberately written in semantic HTML instead of loaded from a remote service. To add a project, copy a `project-card` article in `index.html` and set `data-categories` to `ai`, `systems`, or both. The filter buttons pick up the new card without changes to JavaScript.
+Projects are numbered HTML `article` elements within the `work-list` container. Update them directly and keep the language concise. Experience and background follow the same approach. Comments explain structural decisions rather than narrate each CSS declaration.
 
-The Legacy project is private, so its card gives an overview without implying its source repository is publicly accessible. Contact links use `mailto:` and existing profile URLs; there is no nonfunctional contact form.
-
-## Engineering notes
-
-- Vanilla HTML, CSS, and JavaScript; no package install or runtime dependencies.
-- Responsive, keyboard-accessible navigation, visible focus states, semantic sections, and reduced-motion support.
-- Comments explain why important logic exists, for example, the project filtering and mobile navigation behavior.
-- Resume-derived descriptions intentionally avoid unverified benchmark numbers.
+The Legacy source code is private, so the portfolio does not link to it. Resume-based experience remains descriptive rather than introducing unverified performance claims.
 
 ## Deployment
 
-GitHub Pages can publish from `main` / repository root under **Settings → Pages**. The URL above assumes the standard username GitHub Pages configuration.
+GitHub Pages publishes from the repository's `main` branch. Deployment status is visible under the repository's **Actions** tab.
