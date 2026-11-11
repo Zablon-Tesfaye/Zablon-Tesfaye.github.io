@@ -1,0 +1,176 @@
+/*
+  Visual direction: quiet editorial, not a product landing page.
+  Deliberately limited to ink, warm paper and a handful of neutral grays.
+*/
+:root {
+  color-scheme: light;
+  --paper: #f5f5f2;
+  --ink: #171717;
+  --secondary: #60605c;
+  --soft: #8b8b85;
+  --line: #cecec8;
+  --dark: #1b1b1a;
+  --wide: 1260px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+body { margin: 0; min-width: 320px; color: var(--ink); background: var(--paper); font: 15px/1.7 -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
+::selection { background: #222; color: #fff; }
+h1, h2, h3, p { margin-top: 0; }
+h1, h2, h3 { font-weight: 400; }
+.frame { width: min(var(--wide), calc(100% - 100px)); margin-inline: auto; }
+.skip { position: absolute; top: -100px; left: 22px; z-index: 50; background: var(--ink); color: white; padding: 10px 16px; }
+.skip:focus { top: 16px; }
+
+/* One understated navigation row. No animations, pills, or prominent CTA. */
+.masthead { border-bottom: 1px solid var(--line); }
+.masthead-inner { min-height: 88px; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+.wordmark { font: 700 21px/1 Helvetica, Arial, sans-serif; text-decoration: none; letter-spacing: -.09em; }
+.wordmark-period { letter-spacing: 0; }
+.nav { display: flex; align-items: center; flex-wrap: wrap; gap: clamp(17px,3.1vw,43px); }
+.nav a { text-decoration: none; color: #42423f; font-size: 12px; letter-spacing: .02em; }
+.nav a:hover, .nav a[aria-current="page"] { color: var(--ink); text-decoration: underline; text-underline-offset: 5px; }
+
+/* Large type carries the identity without an illustration or graphic treatment. */
+.hero { padding-top: 41px; }
+.hero-topline { display: flex; justify-content: space-between; gap: 16px; color: var(--secondary); font-size: 11px; letter-spacing: .055em; text-transform: uppercase; }
+.hero h1 { font-size: clamp(106px, 16.6vw, 248px); line-height: .91; letter-spacing: -.105em; font-weight: 500; margin: 106px 0 108px -.018em; }
+.hero h1 em, .contact-grid h2 em { font-family: Georgia, "Times New Roman", serif; font-weight: 400; letter-spacing: -.085em; }
+.hero-bottom { display: flex; align-items: flex-end; justify-content: space-between; gap: 55px; padding-bottom: 53px; }
+.hero-bottom > p { font-size: clamp(18px, 2.4vw, 31px); line-height: 1.35; letter-spacing: -.035em; margin: 0; }
+.hero-note { width: min(330px, 42%); }
+.hero-note p { color: var(--secondary); font-size: 14px; line-height: 1.75; margin: 10px 0 0; }
+.micro-label { color: var(--soft); font-size: 10px; font-weight: 600; letter-spacing: .11em; }
+.hero-divider { border-bottom: 1px solid var(--ink); }
+
+/* A narrow numbered system is reused through the entire portfolio. */
+.section { padding-top: 124px; padding-bottom: 36px; }
+.section-heading { display: flex; align-items: end; justify-content: space-between; gap: 38px; margin-bottom: 51px; }
+.section-number { display: block; margin-bottom: 24px; color: var(--secondary); font-size: 11px; letter-spacing: .11em; }
+.section-heading h2 { margin: 0; font-size: clamp(58px, 7.7vw, 112px); line-height: .98; letter-spacing: -.085em; font-weight: 400; }
+.section-heading > p { color: var(--secondary); max-width: 240px; font-size: 13px; margin-bottom: 4px; }
+.work-list, .experience-list { border-top: 1px solid var(--ink); }
+.work-item { display: grid; grid-template-columns: 80px minmax(0, 1fr) 100px; gap: 35px; align-items: start; padding: 38px 0 40px; border-bottom: 1px solid var(--line); }
+.item-number { color: var(--soft); font-size: 11px; font-variant-numeric: tabular-nums; padding-top: 13px; }
+.work-main { max-width: 740px; }
+.work-title-row { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; }
+.work-title-row h3 { font-size: clamp(30px, 3.25vw, 46px); line-height: 1.2; letter-spacing: -.065em; margin-bottom: 17px; }
+.work-year { font-size: 12px; color: var(--soft); }
+.work-summary { color: #474743; font-size: 15px; line-height: 1.8; max-width: 650px; margin-bottom: 17px; }
+.work-stack { color: var(--soft); font-size: 12px; margin: 0; }
+.work-link, .work-private { justify-self: end; margin-top: 13px; font-size: 12px; white-space: nowrap; text-decoration: none; }
+.work-link { border-bottom: 1px solid transparent; }
+.work-link:hover { border-color: var(--ink); }
+.work-private { color: var(--soft); }
+.quiet-link { display: inline-block; margin: 28px 0 0 115px; text-decoration: none; border-bottom: 1px solid var(--ink); padding-bottom: 4px; font-size: 12px; }
+.quiet-link:hover { color: var(--secondary); }
+
+/* Experience is typography and a thin rule, not a timeline of cards. */
+.experience-item { display: grid; grid-template-columns: minmax(150px,.31fr) 1fr; gap: 45px; padding: 33px 0 36px; border-bottom: 1px solid var(--line); }
+.experience-date { color: var(--secondary); font-size: 12px; padding-top: 5px; }
+.experience-item h3 { font-size: 24px; line-height: 1.3; letter-spacing: -.045em; margin: 0 0 5px; }
+.experience-org { font-size: 13px; margin: 0 0 15px; color: #383835; }
+.experience-item div > p:last-child { color: var(--secondary); max-width: 670px; font-size: 14px; margin: 0; }
+
+/* The about section reads like a short personal statement. */
+.about-section { padding-bottom: 130px; }
+.about-section .section-heading { margin-bottom: 59px; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 110px; padding-top: 40px; border-top: 1px solid var(--ink); }
+.about-statement { font: 400 clamp(30px,3.9vw,52px)/1.24 Georgia, "Times New Roman", serif; letter-spacing: -.055em; max-width: 525px; }
+.about-details > p { color: #4a4a46; line-height: 1.95; max-width: 500px; margin-bottom: 21px; font-size: 15px; }
+.facts { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 55px; border-top: 1px solid var(--line); padding-top: 23px; }
+.facts div:last-child { grid-column: 1 / -1; }
+.facts p { font-size: 13px; line-height: 1.7; margin: 11px 0 0; }
+
+/* Inverted paper/ink for the only substantial visual transition. */
+.contact-section { padding: 90px 0 113px; color: #f2f2ee; background: var(--dark); }
+.contact-section .section-number { color: #b0b0a9; }
+.contact-section a:focus-visible, .footer a:focus-visible { outline: 2px solid #f2f2ee; outline-offset: 6px; }
+.contact-grid { display: grid; grid-template-columns: minmax(0,1.2fr) minmax(280px,.8fr); gap: 45px; align-items: end; }
+.contact-grid h2 { font-size: clamp(82px, 11.5vw, 164px); letter-spacing: -.09em; line-height: .92; margin: 0; }
+.contact-aside { padding-bottom: 4px; }
+.contact-aside > p { font-size: 15px; max-width: 300px; color: #c8c8c2; line-height: 1.8; margin-bottom: 36px; }
+.email-link { display: inline-block; max-width: 100%; font-size: clamp(14px,1.6vw,20px); text-decoration: none; border-bottom: 1px solid #bfbfba; padding-bottom: 8px; overflow-wrap: anywhere; }
+.email-link:hover { color: #b8b8b3; }
+.social-links { display: flex; gap: 30px; margin-top: 47px; }
+.social-links a { text-decoration: none; font-size: 12px; color: #c5c5c0; }
+.social-links a:hover { color: white; }
+.footer { padding: 27px 0; background: var(--dark); color: #9f9f99; border-top: 1px solid #484844; font-size: 11px; }
+.footer-inner { display: flex; justify-content: space-between; gap: 15px; flex-wrap: wrap; }
+.footer a { color: inherit; text-decoration: none; }
+.footer a:hover { color: white; }
+
+/* Contact page uses exactly the same type scale and material palette. */
+.contact-page { min-height: calc(100vh - 150px); padding-top: 125px; padding-bottom: 130px; }
+.contact-page h1 { font-size: clamp(82px,12vw,170px); line-height: .92; letter-spacing: -.085em; margin: 50px 0 45px; }
+.contact-page h1 em { font-family: Georgia, serif; font-weight: normal; }
+.contact-page-intro { color: var(--secondary); max-width: 500px; font-size: 17px; }
+.contact-options { border-top: 1px solid var(--ink); margin-top: 65px; }
+.contact-option { padding: 22px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 24px; text-decoration: none; font-size: 16px; }
+.contact-option span { color: var(--secondary); font-size: 12px; }
+.contact-option:hover { color: var(--secondary); }
+
+@media (max-width: 850px) {
+  .frame { width: calc(100% - 54px); }
+  .hero h1 { font-size: clamp(96px,16.5vw,160px); margin: 95px 0 90px; }
+  .about-grid { gap: 45px; }
+  .contact-grid { gap: 24px; }
+  .work-item { grid-template-columns: 35px minmax(0,1fr) 70px; gap: 15px; }
+  .quiet-link { margin-left: 50px; }
+}
+@media (max-width: 620px) {
+  .frame { width: calc(100% - 36px); }
+  .masthead-inner { min-height: 72px; }
+  .nav { gap: 15px; }
+  .nav a { font-size: 11px; }
+  .hero { padding-top: 28px; }
+  .hero-topline { font-size: 9px; }
+  .hero-topline span:last-child { text-align: right; }
+  /* Use a width-aware minimum so the long surname stays within narrow phone screens. */
+  .hero h1 { font-size: clamp(51px,15.3vw,94px); margin: 91px 0 87px; }
+  .hero-bottom { display: block; padding-bottom: 38px; }
+  .hero-bottom > p { font-size: 23px; }
+  .hero-note { width: auto; margin-top: 45px; }
+  .hero-note p { font-size: 13px; max-width: 330px; }
+  .section { padding-top: 90px; }
+  .section-heading { display: block; margin-bottom: 35px; }
+  .section-heading > p { margin: 23px 0 0; }
+  .section-heading h2 { font-size: 67px; }
+  .work-item { grid-template-columns: 28px minmax(0,1fr); gap: 12px; padding: 28px 0 30px; }
+  .work-title-row h3 { font-size: 32px; }
+  .work-link, .work-private { grid-column: 2; justify-self: start; margin-top: 0; }
+  .work-summary { font-size: 14px; }
+  .quiet-link { margin-left: 40px; }
+  .experience-item { display: block; padding: 27px 0; }
+  .experience-date { display: block; margin-bottom: 11px; }
+  .experience-item h3 { font-size: 22px; }
+  .about-grid { display: block; }
+  .about-statement { font-size: 39px; margin-bottom: 37px; }
+  .about-section { padding-bottom: 85px; }
+  .contact-section { padding: 70px 0 82px; }
+  .contact-grid { display: block; }
+  .contact-grid h2 { font-size: clamp(78px,17vw,112px); margin-bottom: 68px; }
+  .contact-page { padding-top: 75px; }
+  .contact-page h1 { font-size: clamp(70px,15vw,105px); }
+  .contact-option { flex-wrap: wrap; }
+  .contact-option span { overflow-wrap: anywhere; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* Print a concise, ink-friendly overview instead of wasting pages on a full-bleed contact panel. */
+@media print {
+  :root { --paper: #fff; --ink: #000; --line: #aaa; --secondary: #444; }
+  body { color: #000; background: #fff; }
+  .masthead, .footer, .contact-section, .quiet-link { display: none; }
+  .frame { width: 100%; }
+  .hero { padding: 0 0 28px; }
+  .hero h1 { font-size: 74px; margin: 30px 0; }
+  .hero-note { display: none; }
+  .section { padding-top: 30px; }
+  .section-heading { margin-bottom: 20px; }
+  .section-heading h2 { font-size: 40px; }
+  .work-item, .experience-item { break-inside: avoid; padding-block: 16px; }
+  .about-section { padding-bottom: 20px; }
+}
