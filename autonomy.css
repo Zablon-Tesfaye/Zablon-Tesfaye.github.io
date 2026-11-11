@@ -1,0 +1,102 @@
+/*
+  Built a scroll-driven driving study as a separate layer, keeping the portfolio's
+  original neutral typography untouched. At narrow widths the side track steps away.
+*/
+@media (min-width: 1200px) {
+  body:has(.drive-rail) .frame {
+    width: min(1100px, calc(100% - 290px));
+    position: relative;
+    left: 44px;
+  }
+}
+.drive-rail {
+  --drive-progress: 0;
+  position: fixed;
+  left: clamp(12px, 3vw, 50px);
+  top: 100px;
+  height: calc(100dvh - 120px);
+  width: 190px;
+  z-index: 5;
+  pointer-events: none;
+  user-select: none;
+  color: #64645f;
+}
+.drive-rail__line {
+  position: absolute;
+  top: 24px;
+  bottom: 24px;
+  left: 49px;
+  border-left: 1px dashed rgba(58,58,56,.36);
+}
+.drive-rail__fill {
+  position: absolute;
+  left: 48px;
+  width: 2px;
+  top: 24px;
+  height: calc((100% - 48px) * var(--drive-progress));
+  background: #292927;
+  opacity: .58;
+  transition: height 100ms linear;
+}
+.drive-rail__label {
+  position: absolute;
+  left: 115px;
+  font: 10px/1.4 ui-monospace, SFMono-Regular, Consolas, monospace;
+  letter-spacing: .08em;
+  white-space: nowrap;
+  color: #868680;
+}
+.drive-rail__label::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: -66px;
+  width: 59px;
+  border-top: 1px solid rgba(58,58,56,.22);
+}
+.drive-rail__label--first { top: 12%; }
+.drive-rail__label--second { top: 44%; }
+.drive-rail__label--third { top: 76%; }
+.drive-rail__vehicle {
+  position: absolute;
+  top: 33px;
+  left: 50px;
+  width: 90px;
+  transform: translate(-50%, var(--drive-offset, 0px));
+  will-change: transform;
+}
+.drive-rail__car {
+  width: 90px;
+  height: auto;
+  display: block;
+  transform-origin: 50% 55%;
+  animation: idle-steer 5s ease-in-out infinite;
+  filter: drop-shadow(0 4px 1px rgba(22,22,22,.035));
+}
+.drive-rail__status {
+  position: absolute;
+  left: 115px;
+  bottom: 15px;
+  color: #50504c;
+  font: 10px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace;
+  letter-spacing: .12em;
+  white-space: nowrap;
+}
+.drive-rail__status span { display: block; color: #999991; }
+@keyframes idle-steer {
+  0%, 100% { transform: rotate(-1.3deg) translateX(-1px); }
+  50% { transform: rotate(1.3deg) translateX(1px); }
+}
+/* No decorative motion for visitors who request reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  .drive-rail__car { animation: none; }
+  .drive-rail__vehicle { will-change: auto; }
+  .drive-rail__fill { transition: none; }
+}
+@media (max-width: 1199px) {
+  .drive-rail { display: none; }
+}
+@media print {
+  .drive-rail { display: none; }
+  body:has(.drive-rail) .frame { left: auto; width: 100%; }
+}
