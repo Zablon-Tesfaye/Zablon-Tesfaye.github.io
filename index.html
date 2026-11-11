@@ -15,7 +15,9 @@
   <link rel="canonical" href="https://zablon-tesfaye.github.io/">
   <link rel="icon" type="image/svg+xml" href="./favicon.svg">
   <link rel="stylesheet" href="./portfolio.css?v=2">
+  <link rel="stylesheet" href="./autonomy.css?v=1">
   <script src="./script.js" defer></script>
+  <script src="./autonomy.js?v=1" defer></script>
   <title>Zablon Tesfaye — Selected Work</title>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Zablon Tesfaye","url":"https://zablon-tesfaye.github.io/","alumniOf":{"@type":"CollegeOrUniversity","name":"University of California, Santa Cruz"},"sameAs":["https://github.com/Zablon-Tesfaye","https://www.linkedin.com/in/Zablon-Tesfaye"]}</script>
 </head>
@@ -33,6 +35,19 @@
       </nav>
     </div>
   </header>
+
+  <!-- Implemented a fixed driving study to echo scroll progress without covering the portfolio. -->
+  <aside class="drive-rail" data-drive-rail aria-hidden="true">
+    <div class="drive-rail__line"></div>
+    <div class="drive-rail__fill"></div>
+    <span class="drive-rail__label drive-rail__label--first">THE ROAD</span>
+    <span class="drive-rail__label drive-rail__label--second">IN MOTION</span>
+    <span class="drive-rail__label drive-rail__label--third">THE NEXT TURN</span>
+    <div class="drive-rail__vehicle" data-drive-vehicle>
+      <img class="drive-rail__car" src="./autonomous-car.svg" width="90" height="190" alt="" decoding="async">
+    </div>
+    <div class="drive-rail__status"><span>AUTONOMOUS SYSTEMS</span>SCROLL TO DRIVE ↑</div>
+  </aside>
 
   <main id="content">
     <section class="hero frame" id="top" aria-labelledby="hero-title">
