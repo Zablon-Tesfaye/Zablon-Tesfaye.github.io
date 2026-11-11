@@ -4,9 +4,9 @@
 */
 @media (min-width: 1200px) {
   body:has(.drive-rail) .frame {
-    width: min(1100px, calc(100% - 290px));
+    width: min(1100px, calc(100% - 365px));
     position: relative;
-    left: 44px;
+    left: 55px;
   }
 }
 .drive-rail {
@@ -32,7 +32,7 @@
   position: absolute;
   left: 48px;
   width: 2px;
-  top: 24px;
+  bottom: 24px;
   height: calc((100% - 48px) * var(--drive-progress));
   background: #292927;
   opacity: .58;
