@@ -127,7 +127,8 @@ h1, h2, h3 { font-weight: 400; }
   .hero { padding-top: 28px; }
   .hero-topline { font-size: 9px; }
   .hero-topline span:last-child { text-align: right; }
-  .hero h1 { font-size: clamp(68px,17.7vw,106px); margin: 91px 0 87px; }
+  /* Use a width-aware minimum so the long surname stays within narrow phone screens. */
+  .hero h1 { font-size: clamp(51px,15.3vw,94px); margin: 91px 0 87px; }
   .hero-bottom { display: block; padding-bottom: 38px; }
   .hero-bottom > p { font-size: 23px; }
   .hero-note { width: auto; margin-top: 45px; }
