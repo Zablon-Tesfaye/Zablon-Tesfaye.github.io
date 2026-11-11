@@ -158,3 +158,19 @@ h1, h2, h3 { font-weight: 400; }
   .contact-option span { overflow-wrap: anywhere; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* Print a concise, ink-friendly overview instead of wasting pages on a full-bleed contact panel. */
+@media print {
+  :root { --paper: #fff; --ink: #000; --line: #aaa; --secondary: #444; }
+  body { color: #000; background: #fff; }
+  .masthead, .footer, .contact-section, .quiet-link { display: none; }
+  .frame { width: 100%; }
+  .hero { padding: 0 0 28px; }
+  .hero h1 { font-size: 74px; margin: 30px 0; }
+  .hero-note { display: none; }
+  .section { padding-top: 30px; }
+  .section-heading { margin-bottom: 20px; }
+  .section-heading h2 { font-size: 40px; }
+  .work-item, .experience-item { break-inside: avoid; padding-block: 16px; }
+  .about-section { padding-bottom: 20px; }
+}
