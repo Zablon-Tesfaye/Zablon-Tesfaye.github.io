@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 104 220" role="img" aria-label="Top-down autonomous research vehicle">
+  <g fill="none" stroke="#242424" stroke-width="1.65" stroke-linejoin="round" stroke-linecap="round">
+    <!-- Built a clean overhead silhouette rather than using a stock car image. -->
+    <rect x="17" y="39" width="8" height="42" rx="3" fill="#333"/>
+    <rect x="79" y="39" width="8" height="42" rx="3" fill="#333"/>
+    <rect x="17" y="146" width="8" height="42" rx="3" fill="#333"/>
+    <rect x="79" y="146" width="8" height="42" rx="3" fill="#333"/>
+    <path d="M34 17Q52 6 70 17L79 36Q83 47 82 66L82 160Q81 183 74 197Q52 211 30 197Q23 183 22 160L22 66Q21 47 25 36Z" fill="#f5f5f2" stroke-width="2.4"/>
+    <path d="M31 29Q52 20 73 29L77 48L27 48Z" fill="#e2e2dc"/>
+    <path d="M27 54L77 54L75 80Q52 74 29 80Z" fill="#d7d7d2"/>
+    <path d="M31 92Q52 88 73 92L74 148Q52 151 30 148Z" fill="#eaeae5"/>
+    <path d="M29 156Q52 163 75 156L76 182Q52 176 28 182Z" fill="#d7d7d2"/>
+    <path d="M30 188Q52 193 74 188" stroke-width="1.1"/>
+    <path d="M24 89L19 95L19 110L23 114M80 89L85 95L85 110L81 114" stroke-width="1.2"/>
+    <path d="M37 35L67 35M37 194L67 194" stroke-width="1.1"/>
+    <path d="M52 80V91M52 152V161" stroke-dasharray="3 4" opacity=".5"/>
+    <circle cx="52" cy="120" r="8" fill="#f5f5f2" stroke-width="1.6"/>
+    <circle cx="52" cy="120" r="2" fill="#242424"/>
+    <!-- Sensor traces suggest autonomy without turning the artwork into an infographic. -->
+    <path d="M40 107a17 17 0 0 1 24 0M35 102a24 24 0 0 1 34 0" opacity=".45" stroke-width="1.1"/>
+    <path d="M40 133a17 17 0 0 0 24 0M35 138a24 24 0 0 0 34 0" opacity=".45" stroke-width="1.1"/>
+  </g>
+</svg>
