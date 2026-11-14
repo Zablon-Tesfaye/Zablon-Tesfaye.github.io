@@ -10,13 +10,16 @@ The site uses a limited black/gray/warm-white palette, a simple editorial grid, 
 
 - `index.html` — selected projects, experience, background, and contact
 - `contacts.html` — secondary contact page in the same visual language
-- `style.css` — shared responsive typography and layout
+- `portfolio.css` — active shared responsive typography and layout
+- `style.css` — older stylesheet kept for reference
 - `script.js` — automatically updates copyright year
 - `favicon.svg` — compact neutral monogram
 - `autonomous-car.svg` — original top-down line drawing of an autonomous research car
 - `autonomy.css` — fixed road rail, subtle idle steering, responsive/reduced-motion behavior
 - `autonomy.js` — maps scroll position to reversible car movement using animation frames
-- `tests/test_site.py` — built-in Python checks for anchors, link safety, and required assets
+- `tests/test_site.py` — built-in Python checks for anchors, link safety, unique IDs, and required assets
+- `.github/workflows/portfolio-checks.yml` — tests on pushes and pull requests
+- `sitemap.xml` — public page discovery for search crawlers
 
 ## Local preview
 
@@ -49,3 +52,7 @@ GitHub Pages publishes from the repository's `main` branch. Deployment status is
 On desktop widths of 1200px or more, the vehicle sits on a slim fixed road at the left edge. It starts near the bottom of that road and moves upward as visitors scroll down the portfolio; scrolling back reverses the motion. A slight steering sway plays while idle. On tablets and phones, the rail is hidden to preserve reading space, and users who prefer reduced motion see a stationary car instead of animation.
 
 The illustration is a locally hosted SVG with no image service, animation framework, or third-party dependency. The functionality is isolated so the minimalist content layout can remain unchanged.
+
+## Maintenance checks
+
+New commits run the standard-library HTML and asset checks through GitHub Actions. The fixed-side animation only performs its scroll calculations on desktop, and active section links use IntersectionObserver rather than expensive continuous layout reads. Pages stay text-first and intentionally avoid analytics, third-party scripts, or external fonts.
