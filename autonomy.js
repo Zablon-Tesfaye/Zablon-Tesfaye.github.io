@@ -9,9 +9,12 @@
 
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   let scheduled = false;
+  const desktop = window.matchMedia("(min-width: 1200px)");
 
   function draw() {
     scheduled = false;
+    // Skip layout calculations while the road is hidden on smaller screens.
+    if (!desktop.matches) return;
     // Use the available document travel so the vehicle reaches the top at the footer.
     const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
     const progress = maxScroll ? Math.min(1, Math.max(0, window.scrollY / maxScroll)) : 0;
@@ -34,5 +37,6 @@
   window.addEventListener("resize", schedule, { passive: true });
   window.addEventListener("load", schedule, { once: true });
   if (reducedMotion.addEventListener) reducedMotion.addEventListener("change", schedule);
+  if (desktop.addEventListener) desktop.addEventListener("change", schedule);
   schedule();
 })();
