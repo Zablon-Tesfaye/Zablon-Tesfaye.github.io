@@ -16,11 +16,14 @@ class SiteParser(HTMLParser):
         self.ids = set()
         self.links = []
         self.headings = []
+        self.assets = []
 
     def handle_starttag(self, tag, attrs):
         props = dict(attrs)
         if props.get("id"):
             self.ids.add(props["id"])
+        if tag in {"script", "link", "img"}:
+            self.assets.append((tag, props))
         if tag == "a":
             self.links.append(props)
         if tag in {"h1", "h2"}:
@@ -59,6 +62,17 @@ class PortfolioChecks(unittest.TestCase):
         for asset in ("style.css", "portfolio.css", "script.js", "favicon.svg",
                       "autonomy.css", "autonomy.js", "autonomous-car.svg"):
             self.assertTrue((ROOT / asset).is_file(), asset)
+
+    def test_local_asset_references_exist(self):
+        # Catch missing stylesheets or animation files before deploying to Pages.
+        for page in ("index.html", "contacts.html"):
+            parsed = self.load_page(page)
+            for tag, attrs in parsed.assets:
+                path = attrs.get("src" if tag in {"script", "img"} else "href", "")
+                if not path.startswith("./"):
+                    continue
+                clean_path = path[2:].split("?", 1)[0].split("#", 1)[0]
+                self.assertTrue((ROOT / clean_path).is_file(), clean_path)
 
     def test_driving_study_has_scroll_driver_and_motion_fallback(self):
         # Ensure the illustration is wired to its controller and reduced-motion CSS.
