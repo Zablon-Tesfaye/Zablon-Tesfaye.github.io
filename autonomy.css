@@ -36,7 +36,7 @@
   height: calc((100% - 48px) * var(--drive-progress));
   background: #292927;
   opacity: .58;
-  transition: height 100ms linear;
+  /* RequestAnimationFrame in autonomy.js already smooths scroll updates. */
 }
 .drive-rail__label {
   position: absolute;
@@ -91,7 +91,7 @@
 @media (prefers-reduced-motion: reduce) {
   .drive-rail__car { animation: none; }
   .drive-rail__vehicle { will-change: auto; }
-  .drive-rail__fill { transition: none; }
+  .drive-rail__fill { opacity: 0; }
 }
 @media (max-width: 1199px) {
   .drive-rail { display: none; }
