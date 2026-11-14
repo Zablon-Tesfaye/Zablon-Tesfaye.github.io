@@ -17,11 +17,13 @@ class SiteParser(HTMLParser):
         self.links = []
         self.headings = []
         self.assets = []
+        self.all_ids = []
 
     def handle_starttag(self, tag, attrs):
         props = dict(attrs)
         if props.get("id"):
             self.ids.add(props["id"])
+            self.all_ids.append(props["id"])
         if tag in {"script", "link", "img"}:
             self.assets.append((tag, props))
         if tag == "a":
@@ -62,6 +64,13 @@ class PortfolioChecks(unittest.TestCase):
         for asset in ("style.css", "portfolio.css", "script.js", "favicon.svg",
                       "autonomy.css", "autonomy.js", "autonomous-car.svg"):
             self.assertTrue((ROOT / asset).is_file(), asset)
+
+    def test_unique_ids_and_skip_link(self):
+        for page in ("index.html", "contacts.html"):
+            parsed = self.load_page(page)
+            self.assertEqual(len(parsed.all_ids), len(set(parsed.all_ids)))
+            self.assertIn("content", parsed.ids)
+            self.assertTrue(any(link.get("href") == "#content" for link in parsed.links))
 
     def test_local_asset_references_exist(self):
         # Catch missing stylesheets or animation files before deploying to Pages.
