@@ -174,3 +174,13 @@ h1, h2, h3 { font-weight: 400; }
   .work-item, .experience-item { break-inside: avoid; padding-block: 16px; }
   .about-section { padding-bottom: 20px; }
 }
+
+/* Keep the simple navigation readable on narrower devices without a menu overlay. */
+@media (max-width: 400px) {
+  .masthead-inner { flex-wrap: wrap; justify-content: center; padding-block: 14px; row-gap: 13px; }
+  .nav { width: 100%; justify-content: space-between; gap: 9px; }
+  .nav a { font-size: 12px; }
+}
+
+/* Prevent long addresses and URLs from widening the page on small screens. */
+.contact-aside, .about-details, .work-main { min-width: 0; }
