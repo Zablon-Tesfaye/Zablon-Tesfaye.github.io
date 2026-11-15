@@ -91,6 +91,7 @@
 /* No decorative motion for visitors who request reduced motion. */
 @media (prefers-reduced-motion: reduce) {
   .drive-rail__car { animation: none; }
+  .drive-rail__vehicle { transform: translate(-50%, 0px); }
   .drive-rail__vehicle { will-change: auto; }
   .drive-rail__fill { opacity: 0; }
 }
