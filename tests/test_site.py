@@ -5,6 +5,7 @@ Run with: python3 -m unittest discover -s tests
 
 from html.parser import HTMLParser
 from pathlib import Path
+from xml.etree import ElementTree
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -100,6 +101,15 @@ class PortfolioChecks(unittest.TestCase):
                     continue
                 clean_path = path[2:].split("?", 1)[0].split("#", 1)[0]
                 self.assertTrue((ROOT / clean_path).is_file(), clean_path)
+
+    def test_sitemap_and_svg_parse_as_xml(self):
+        # Catch malformed public metadata or artwork before GitHub Pages deploys.
+        for file in ("sitemap.xml", "favicon.svg", "autonomous-car.svg"):
+            ElementTree.parse(ROOT / file)
+        sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
+        robots = (ROOT / "robots.txt").read_text(encoding="utf-8")
+        self.assertIn("https://zablon-tesfaye.github.io/", sitemap)
+        self.assertIn("sitemap.xml", robots)
 
     def test_driving_study_has_scroll_driver_and_motion_fallback(self):
         # Ensure the illustration is wired to its controller and reduced-motion CSS.
