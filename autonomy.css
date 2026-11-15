@@ -101,3 +101,9 @@
   .drive-rail { display: none; }
   body:has(.drive-rail) .frame { left: auto; width: 100%; }
 }
+
+/* A short landscape viewport cannot fit the full vehicle and route labels. */
+@media (min-width: 1200px) and (max-height: 530px) {
+  .drive-rail { display: none; }
+  body:has(.drive-rail) .frame { left: auto; width: min(var(--wide), calc(100% - 100px)); }
+}
