@@ -27,4 +27,15 @@ if (sectionTargets.length && "IntersectionObserver" in window) {
     }
   }, { rootMargin: "-18% 0px -65% 0px" });
   sectionTargets.forEach((section) => observer.observe(section));
+
+  // Clear the section highlight when the visitor returns to the introduction.
+  const introduction = document.querySelector("#top");
+  if (introduction) {
+    const introObserver = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        sectionLinks.forEach((link) => link.removeAttribute("aria-current"));
+      }
+    }, { threshold: 0.45 });
+    introObserver.observe(introduction);
+  }
 }
