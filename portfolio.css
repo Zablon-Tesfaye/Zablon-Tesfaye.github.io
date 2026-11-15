@@ -173,6 +173,8 @@ h1, h2, h3 { font-weight: 400; }
   .section-heading h2 { font-size: 40px; }
   .work-item, .experience-item { break-inside: avoid; padding-block: 16px; }
   .about-section { padding-bottom: 20px; }
+  /* Preserve destinations for visitors printing the portfolio for later review. */
+  .work-link::after, .quiet-link::after { content: " (" attr(href) ")"; font-size: 9px; }
 }
 
 /* Keep the simple navigation readable on narrower devices without a menu overlay. */
