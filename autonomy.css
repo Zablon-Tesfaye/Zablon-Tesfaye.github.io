@@ -3,6 +3,7 @@
   original neutral typography untouched. At narrow widths the side track steps away.
 */
 @media (min-width: 1200px) {
+  /* Keep the road from covering body text at the narrow desktop breakpoint. */
   body:has(.drive-rail) .frame {
     width: min(1100px, calc(100% - 365px));
     position: relative;
