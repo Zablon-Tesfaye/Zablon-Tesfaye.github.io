@@ -69,6 +69,15 @@ class PortfolioChecks(unittest.TestCase):
                     self.assertIn("noopener", tokens)
                     self.assertIn("noreferrer", tokens)
 
+    def test_public_links_use_secure_protocol(self):
+        for page in ("index.html", "contacts.html"):
+            for link in self.load_page(page).links:
+                url = link.get("href", "")
+                if url.startswith("http:"):
+                    self.fail(f"Insecure external link in {page}: {url}")
+                if url.lower().startswith("javascript:"):
+                    self.fail(f"Unexpected executable link in {page}: {url}")
+
     def test_required_assets_exist(self):
         for asset in ("style.css", "portfolio.css", "script.js", "favicon.svg",
                       "autonomy.css", "autonomy.js", "autonomous-car.svg"):
