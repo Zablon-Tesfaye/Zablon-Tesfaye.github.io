@@ -16,8 +16,9 @@
     // Skip layout calculations while the road is hidden on smaller screens.
     if (!desktop.matches) return;
     // Use the available document travel so the vehicle reaches the top at the footer.
-    const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
-    const progress = maxScroll ? Math.min(1, Math.max(0, window.scrollY / maxScroll)) : 0;
+    const scrollingElement = document.scrollingElement || document.documentElement;
+    const maxScroll = Math.max(0, scrollingElement.scrollHeight - scrollingElement.clientHeight);
+    const progress = maxScroll ? Math.min(1, Math.max(0, scrollingElement.scrollTop / maxScroll)) : 0;
     const maxTravel = Math.max(0, rail.clientHeight - car.offsetHeight - 47);
 
     // Keep the car fixed in the reduced-motion setting rather than reacting to scrolling.
