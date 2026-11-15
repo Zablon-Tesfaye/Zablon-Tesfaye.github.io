@@ -51,6 +51,15 @@ class PortfolioChecks(unittest.TestCase):
             self.assertIn("content", page.ids)
             self.assertTrue(any(tag == "h1" for tag, _ in page.headings))
 
+    def test_cross_page_navigation_targets_exist(self):
+        # Validate contact-page navigation back to real sections of the homepage.
+        home = self.load_page("index.html")
+        for link in self.load_page("contacts.html").links:
+            url = link.get("href", "")
+            if url.startswith("./index.html#"):
+                target = url.split("#", 1)[1]
+                self.assertIn(target, home.ids, f"Missing homepage target: {target}")
+
     def test_external_links_are_safe(self):
         for name in ("index.html", "contacts.html"):
             page = self.load_page(name)
