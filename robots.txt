@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zablon-tesfaye.github.io/sitemap.xml
