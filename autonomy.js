@@ -39,6 +39,10 @@
   window.addEventListener("scroll", schedule, { passive: true });
   window.addEventListener("resize", schedule, { passive: true });
   window.addEventListener("load", schedule, { once: true });
+  // A restored browser tab may have a different scroll position than it had before suspension.
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) schedule();
+  });
   if (reducedMotion.addEventListener) reducedMotion.addEventListener("change", schedule);
   if (desktop.addEventListener) desktop.addEventListener("change", () => {
     if (desktop.matches) schedule();
