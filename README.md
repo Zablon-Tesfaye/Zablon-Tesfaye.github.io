@@ -59,3 +59,7 @@ The illustration is a locally hosted SVG with no image service, animation framew
 New commits run the standard-library HTML and asset checks through GitHub Actions. The checks also validate cross-page section links, URL schemes, unique IDs, sitemap/SVG syntax, and static asset references. The fixed-side animation only performs its scroll calculations on desktop, and active section links use IntersectionObserver rather than expensive continuous layout reads. Pages stay text-first and intentionally avoid analytics, third-party scripts, or external fonts.
 
 For printouts, the portfolio includes source URLs beside its project links. The navigation highlight resets when returning to the introduction, and the autonomous car disables movement work on smaller screens or when reduced motion is requested.
+
+## Browser and layout resilience
+
+The road animation pauses when its desktop-only panel is hidden, the viewport is too short, or the browser tab is inactive. Returning to a visible tab recalculates the car's position from the current scroll offset. Site checks also protect the experience-first section order, canonical page addresses, and basic accessibility landmarks.
