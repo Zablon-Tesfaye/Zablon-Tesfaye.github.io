@@ -9,12 +9,12 @@
 
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   let scheduled = false;
-  const desktop = window.matchMedia("(min-width: 1200px)");
+  const desktop = window.matchMedia("(min-width: 1200px) and (min-height: 531px)");
 
   function draw() {
     scheduled = false;
     // Skip layout calculations while the road is hidden on smaller screens.
-    if (!desktop.matches) return;
+    if (!desktop.matches || document.hidden) return;
     // Use the available document travel so the vehicle reaches the top at the footer.
     const scrollingElement = document.scrollingElement || document.documentElement;
     const maxScroll = Math.max(0, scrollingElement.scrollHeight - scrollingElement.clientHeight);
