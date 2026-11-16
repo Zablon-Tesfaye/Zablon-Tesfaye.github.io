@@ -102,6 +102,17 @@ class PortfolioChecks(unittest.TestCase):
                 clean_path = path[2:].split("?", 1)[0].split("#", 1)[0]
                 self.assertTrue((ROOT / clean_path).is_file(), clean_path)
 
+    def test_document_titles_and_canonical_addresses(self):
+        # Ensure public pages have distinct titles and explicit canonical URLs.
+        pages = {
+            "index.html": "https://zablon-tesfaye.github.io/",
+            "contacts.html": "https://zablon-tesfaye.github.io/contacts.html",
+        }
+        for filename, canonical in pages.items():
+            content = (ROOT / filename).read_text(encoding="utf-8")
+            self.assertIn("<title>", content)
+            self.assertIn(f'href="{canonical}"', content)
+
     def test_sitemap_and_svg_parse_as_xml(self):
         # Catch malformed public metadata or artwork before GitHub Pages deploys.
         for file in ("sitemap.xml", "favicon.svg", "autonomous-car.svg"):
