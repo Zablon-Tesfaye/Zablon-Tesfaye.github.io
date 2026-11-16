@@ -102,6 +102,15 @@ class PortfolioChecks(unittest.TestCase):
                 clean_path = path[2:].split("?", 1)[0].split("#", 1)[0]
                 self.assertTrue((ROOT / clean_path).is_file(), clean_path)
 
+    def test_navigation_has_accessible_landmarks(self):
+        # Retain semantic page landmarks as future content is added.
+        for page in ("index.html", "contacts.html"):
+            content = (ROOT / page).read_text(encoding="utf-8")
+            self.assertIn("<main ", content)
+            self.assertIn("</main>", content)
+            self.assertIn("<nav ", content)
+            self.assertIn('aria-label="Primary navigation"', content)
+
     def test_document_titles_and_canonical_addresses(self):
         # Ensure public pages have distinct titles and explicit canonical URLs.
         pages = {
