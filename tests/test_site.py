@@ -102,6 +102,12 @@ class PortfolioChecks(unittest.TestCase):
                 clean_path = path[2:].split("?", 1)[0].split("#", 1)[0]
                 self.assertTrue((ROOT / clean_path).is_file(), clean_path)
 
+    def test_homepage_keeps_research_before_projects(self):
+        # The experience-first narrative is intentional and should not regress.
+        html = (ROOT / "index.html").read_text(encoding="utf-8")
+        self.assertLess(html.index('id="experience"'), html.index('id="work"'))
+        self.assertLess(html.index('id="work"'), html.index('id="about"'))
+
     def test_navigation_has_accessible_landmarks(self):
         # Retain semantic page landmarks as future content is added.
         for page in ("index.html", "contacts.html"):
