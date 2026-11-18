@@ -102,6 +102,13 @@ class PortfolioChecks(unittest.TestCase):
                 clean_path = path[2:].split("?", 1)[0].split("#", 1)[0]
                 self.assertTrue((ROOT / clean_path).is_file(), clean_path)
 
+    def test_portfolio_section_headings_are_labelled(self):
+        html = (ROOT / "index.html").read_text(encoding="utf-8")
+        for section in ("experience", "work", "about", "contact"):
+            self.assertIn(f'id="{section}"', html)
+            self.assertIn(f'aria-labelledby="{section}-heading"', html)
+            self.assertIn(f'id="{section}-heading"', html)
+
     def test_homepage_keeps_research_before_projects(self):
         # The experience-first narrative is intentional and should not regress.
         html = (ROOT / "index.html").read_text(encoding="utf-8")
