@@ -128,6 +128,13 @@ class PortfolioChecks(unittest.TestCase):
             self.assertIn("<title>", content)
             self.assertIn(f'href="{canonical}"', content)
 
+    def test_navigation_updates_for_anchor_changes(self):
+        script = (ROOT / "script.js").read_text(encoding="utf-8")
+        stylesheet = (ROOT / "portfolio.css").read_text(encoding="utf-8")
+        self.assertIn("hashchange", script)
+        self.assertIn('aria-current", "location"', script)
+        self.assertIn('.nav a[aria-current="location"]', stylesheet)
+
     def test_sitemap_and_svg_parse_as_xml(self):
         # Catch malformed public metadata or artwork before GitHub Pages deploys.
         for file in ("sitemap.xml", "favicon.svg", "autonomous-car.svg"):
