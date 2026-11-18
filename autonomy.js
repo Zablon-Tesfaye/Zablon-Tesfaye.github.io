@@ -29,7 +29,7 @@
 
   function schedule() {
     // Skip the animation frame entirely while the desktop-only rail is hidden.
-    if (!desktop.matches) return;
+    if (!desktop.matches || document.hidden) return;
     if (!scheduled) {
       scheduled = true;
       window.requestAnimationFrame(draw);
