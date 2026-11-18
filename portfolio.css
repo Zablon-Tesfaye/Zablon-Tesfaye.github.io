@@ -183,7 +183,7 @@ h1, h2, h3 { font-weight: 400; }
 @media (max-width: 400px) {
   .masthead-inner { flex-wrap: wrap; justify-content: center; padding-block: 14px; row-gap: 13px; }
   .nav { width: 100%; justify-content: space-between; gap: 9px; }
-  .nav a { font-size: 12px; }
+  .nav a { font-size: 12px; padding-block: 6px; }
 }
 
 /* Prevent long addresses and URLs from widening the page on small screens. */
