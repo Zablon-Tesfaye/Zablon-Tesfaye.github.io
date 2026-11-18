@@ -39,6 +39,8 @@
   window.addEventListener("scroll", schedule, { passive: true });
   window.addEventListener("resize", schedule, { passive: true });
   window.addEventListener("load", schedule, { once: true });
+  // Browsers can restore scroll offset without firing a fresh scroll event.
+  window.addEventListener("pageshow", schedule);
   // A restored browser tab may have a different scroll position than it had before suspension.
   document.addEventListener("visibilitychange", () => {
     if (!document.hidden) schedule();
