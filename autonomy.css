@@ -15,6 +15,7 @@
   position: fixed;
   left: clamp(12px, 3vw, 50px);
   top: 100px;
+  height: calc(100vh - 120px);
   height: calc(100dvh - 120px);
   width: 190px;
   z-index: 5;
