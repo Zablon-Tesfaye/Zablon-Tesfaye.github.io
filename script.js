@@ -27,6 +27,14 @@ if (sectionTargets.length && "IntersectionObserver" in window) {
     }
   }, { rootMargin: "-18% 0px -65% 0px" });
   sectionTargets.forEach((section) => observer.observe(section));
+  // Hash links also work when visitors arrive directly from an external profile.
+  window.addEventListener("hashchange", () => {
+    const current = window.location.hash;
+    sectionLinks.forEach((link) => {
+      if (link.getAttribute("href") === current) link.setAttribute("aria-current", "location");
+      else link.removeAttribute("aria-current");
+    });
+  });
 
   // Clear the section highlight when the visitor returns to the introduction.
   const introduction = document.querySelector("#top");
