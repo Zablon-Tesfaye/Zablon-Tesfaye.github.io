@@ -160,6 +160,7 @@ class PortfolioChecks(unittest.TestCase):
         self.assertIn('data-drive-vehicle', html)
         self.assertIn('src="./autonomous-car.svg"', html)
         self.assertIn('scrollingElement.scrollTop', script)
+        self.assertIn('"pageshow"', script)
         self.assertIn('prefers-reduced-motion', script)
         self.assertIn('@media (prefers-reduced-motion: reduce)', stylesheet)
         self.assertIn('@media (max-width: 1199px)', stylesheet)
