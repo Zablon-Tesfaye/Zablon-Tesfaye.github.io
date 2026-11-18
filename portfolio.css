@@ -188,3 +188,4 @@ h1, h2, h3 { font-weight: 400; }
 
 /* Prevent long addresses and URLs from widening the page on small screens. */
 .contact-aside, .about-details, .work-main { min-width: 0; }
+.work-link, .quiet-link { overflow-wrap: anywhere; }
