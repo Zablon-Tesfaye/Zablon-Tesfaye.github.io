@@ -164,6 +164,9 @@ class PortfolioChecks(unittest.TestCase):
         self.assertIn('prefers-reduced-motion', script)
         self.assertIn('@media (prefers-reduced-motion: reduce)', stylesheet)
         self.assertIn('@media (max-width: 1199px)', stylesheet)
+        self.assertIn('height: calc(100vh - 120px)', stylesheet)
+        self.assertIn('height: calc(100dvh - 120px)', stylesheet)
+        self.assertIn('@media (min-width: 1200px) and (max-height: 530px)', stylesheet)
 
 
 if __name__ == "__main__":
