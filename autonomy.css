@@ -21,6 +21,7 @@
   z-index: 5;
   pointer-events: none;
   user-select: none;
+  -webkit-user-select: none;
   color: #64645f;
 }
 .drive-rail__line {
