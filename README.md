@@ -36,7 +36,7 @@ Visit http://localhost:8000.
 python3 -m unittest discover -s tests -v
 ```
 
-The tests use only the Python standard library, so no dependencies need to be installed. They check same-page navigation targets, essential files, and the security attributes on external links.
+The tests use only the Python standard library, so no dependencies need to be installed. Before sharing a new portfolio version, check that both **Portfolio checks** and **pages build and deployment** finish successfully in GitHub Actions. They check same-page navigation targets, essential files, and the security attributes on external links.
 
 ## Editing content
 
