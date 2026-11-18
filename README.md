@@ -63,3 +63,7 @@ For printouts, the portfolio includes source URLs beside its project links. The 
 ## Browser and layout resilience
 
 The road animation pauses when its desktop-only panel is hidden, the viewport is too short, or the browser tab is inactive. Returning to a visible tab recalculates the car's position from the current scroll offset. Site checks also protect the experience-first section order, canonical page addresses, and basic accessibility landmarks.
+
+## Interaction regression checks
+
+The portfolio restores the car position when a browser tab resumes or when visitors navigate backward and forward. Section links update their current-location state after a direct hash jump, and the test suite checks that the experience-first layout and labelled sections remain intact. The design does not depend on these enhancements; the content and anchors remain usable without JavaScript.
